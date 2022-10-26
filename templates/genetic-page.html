@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <link href="../static/genetic-page.css" rel="stylesheet"/>
+    <div class="spectacle-prescription-container">
+        <div class="spectacle-prescription-container1">
+            <div class="spectacle-prescription-container2">
+                <button class="button spectacle-prescription-button">Back</button>
+                <div class="spectacle-prescription-code-embed">
+                    <link
+                            rel="stylesheet"
+                            href="https://www.w3schools.com/w3css/4/w3.css"
+                    />
+                    <div class="w3-light-blue w3-round">
+                        <div class="w3-container w3-round w3-blue" style="width:{{ questions[question_id][2] }}%">
+                            {{ str(questions[question_id][2]) }}%
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="spectacle-prescription-container3">
+                <h1 class="spectacle-prescription-text">{{ questions[question_id][0] }}</h1>
+                <span class="spectacle-prescription-text1">
+            {{ questions[question_id][1] }}
+        </span>
+                <form action="" type="GET" class="spectacle-prescription-form">
+                    {% for answer in answers[question_id] %}
+                        <input
+                                type="radio"
+                                name="radio_answer"
+                                value={{ answer }}
+                                class="spectacle-prescription-radiobutton"
+                        />
+                        <label class="spectacle-prescription-text2">{{ answer }}</label>
+                        <div><br/></div>
+
+                    {% endfor %}
+                    <input name="question_id" value="{{ question_id + 1 }}"
+                           type="hidden"
+                    />
+                    <input
+                            name="session_id"
+                            value="{{ session_id }}"
+                            type="hidden"
+                    />
+                {% if question_id != 3 %}
+                    <button class="button spectacle-prescription-button1">Next</button>
+                {% else %}
+                    <button class="button spectacle-prescription-button1">predict</button>
+                {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

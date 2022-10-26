@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>lens-pridictor</title>
+    <meta property="og:title" content="lens-pridictor" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+  </head>
+  <body>
+    <div>
+      <link href="../static/home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container1">
+          <div class="home-container2">
+            <h1 class="home-text">Lens Check</h1>
+            <span class="home-text01">
+              HIER MOET NOG TEKST
+            </span>
+          </div>
+            <a href="{{ url_for('answer_question') }}">
+                <div class="home-container3" >
+                    <h1 class="home-text02">
+                    <span>Start</span>
+                    <br />
+                    </h1>
+                 </div>
+            </a>
+          <div class="home-container4">
+            <h1 class="home-text05">
+              <span>About</span>
+              <br />
+            </h1>
+            <span class="home-text08">
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas egestas et magna vitae pharetra. Vivamus in hendrerit
+                lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas egestas et magna vitae pharetra. Vivamus in hendrerit
+                lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </span>
+              <br />
+            </span>
+            <button class="button home-button">
+              <svg viewBox="0 0 950.8571428571428 1024" class="home-icon">
+                <path
+                  d="M920.571 475.429c0 19.429-8 38.286-21.143 51.429l-372 372.571c-13.714 13.143-32.571 21.143-52 21.143s-38.286-8-51.429-21.143l-372-372.571c-13.714-13.143-21.714-32-21.714-51.429s8-38.286 21.714-52l42.286-42.857c13.714-13.143 32.571-21.143 52-21.143s38.286 8 51.429 21.143l168 168v-402.286c0-40 33.143-73.143 73.143-73.143h73.143c40 0 73.143 33.143 73.143 73.143v402.286l168-168c13.143-13.143 32-21.143 51.429-21.143s38.286 8 52 21.143l42.857 42.857c13.143 13.714 21.143 32.571 21.143 52z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
