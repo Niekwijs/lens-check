@@ -66,6 +66,11 @@ def index():
     return render_template('index.html')
 
 
+@app.get('/about')
+def about_page():
+    return render_template('about-page.html')
+
+
 def handle_answer(session_id, question_id, answer):
     if question_id == 1:
         _q_input[0] = answer
