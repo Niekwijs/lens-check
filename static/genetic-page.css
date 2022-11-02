@@ -51,7 +51,7 @@ background-image: url("./public/playground_assets/group 8-1500w.png");
     align-self: center;
     box-shadow: 5px 5px 10px 0px #d4d4d4;
     border-width: 0px;
-    border-radius: var(--dl-radius-radius-radius8);
+    border-radius: 15px;
     background-color: #1973b5;
   }
   .spectacle-prescription-code-embed {
@@ -67,7 +67,7 @@ background-image: url("./public/playground_assets/group 8-1500w.png");
     box-shadow: 5px 5px 10px 0px #d4d4d4;
     margin-top: 200px;
     padding-left: 30px;
-    border-radius: var(--dl-radius-radius-radius8);
+    border-radius: 15px;
     padding-right: 30px;
     padding-bottom: 30px;
     background-color: #1973b5;
@@ -93,7 +93,7 @@ background-image: url("./public/playground_assets/group 8-1500w.png");
     margin-left: 150px;
     border-color: var(--dl-color-gray-black);
     border-width: 1px;
-    border-radius: var(--dl-radius-radius-radius4);
+    border-radius: 15px;
   }
   .spectacle-prescription-text2 {
     color: #fdfdfd;
@@ -118,7 +118,7 @@ background-image: url("./public/playground_assets/group 8-1500w.png");
     text-align: center;
     padding-top: 10px;
     border-width: 0px;
-    border-radius: var(--dl-radius-radius-radius8);
+    border-radius: 15px;
     background-color: #1973b5;
   }
 }

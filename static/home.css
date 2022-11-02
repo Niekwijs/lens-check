@@ -56,6 +56,7 @@ Container
   .home-container1 {
     width: 100%;
     height: 100%;
+    border-radius: 25px;
     align-self: center;
     padding-left: 30px;
     padding-right: 30px;
@@ -64,10 +65,11 @@ Container
   }
   .home-container2 {
     width: 100%;
+    border-radius: 25px;
     box-shadow: 5px 5px 10px 0px #d4d4d4;
     margin-top: 150px;
     padding-left: 30px;
-    border-radius: var(--dl-radius-radius-radius8);
+    border-radius: 15px;
     padding-right: 30px;
     padding-bottom: 30px;
     background-color: #1973b5;
@@ -89,7 +91,7 @@ Container
     box-shadow: 5px 5px 10px 0px #d4d4d4;
     margin-top: 350px;
     align-items: center;
-    border-radius: var(--dl-radius-radius-radius8);
+    border-radius: 15px;
     margin-bottom: 50px;
     justify-content: center;
     background-color: #1973b5;
@@ -103,7 +105,7 @@ Container
     height: auto;
     z-index: 100;
     padding-left: 20px;
-    border-radius: var(--dl-radius-radius-radius4);
+    border-radius: 15px;
     padding-right: 20px;
   }
   .home-text05 {
