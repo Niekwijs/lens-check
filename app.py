@@ -27,20 +27,20 @@ _final_input = [0] * 7
 questions =[
     [
         "Age",
-        "Age of the patient: (1) young, (2) pre-presbyopic, (3) presbyopic",
+        "Please select your age below (young 0-40 , pre-presbyopic  40-50, presbyopic 50> .",
         33
 
     ],
     [
         "Spectacle",
-        "Spectacle prescription: (1) myope, (2) hypermetrope",
+        "Please select you Spectacle prescription below",
         66
 
     ],
 
     [
         "Tear production",
-        "Tear production rate: (1) reduced, (2) normal",
+        "Please select your Tear production rate below.",
         99
 
     ]
