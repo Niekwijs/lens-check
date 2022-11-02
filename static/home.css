@@ -1,3 +1,11 @@
+Home
+Container
+Container
+Heading
+Text
+Container
+Container
+
 .home-container {
   width: 100%;
   display: flex;
@@ -43,7 +51,7 @@
   .home-container {
     background-size: cover;
     justify-content: flex-start;
-    background-image: url("./public/playground_assets/group 8-1500w.png");
+    background-image: url("/playground_assets/group%208-1500w.png");
   }
   .home-container1 {
     width: 100%;
@@ -52,7 +60,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background-size: cover;
-    background-image: url("./public/playground_assets/group 8-1500w.png");
+    background-image: url("/playground_assets/group%208-1500w.png");
   }
   .home-container2 {
     width: 100%;
@@ -68,6 +76,7 @@
     color: rgb(255, 255, 255);
     align-self: center;
     padding-top: 20px;
+    padding-bottom: 20px;
   }
   .home-text01 {
     color: rgb(255, 255, 255);
@@ -118,3 +127,4 @@
     height: 50px;
   }
 }
+
