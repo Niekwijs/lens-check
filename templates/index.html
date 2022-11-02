@@ -3,6 +3,7 @@
   <head>
     <title>lens-pridictor</title>
     <meta property="og:title" content="lens-pridictor" />
+      <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet" type="text/css" />
 
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
@@ -33,16 +34,22 @@
   </head>
   <body>
     <div>
-      <link href="../static/home.css" rel="stylesheet" />
+
 
       <div class="home-container">
         <div class="home-container1">
           <div class="home-container2">
             <h1 class="home-text">Lens Check</h1>
             <span class="home-text01">
-                Soft Lenses are in the long run pretty expensive.
+                Lens Check will help you decide what type of lenses you should be buying, and possibly help save you money.
                 <br>
-                With the lens check you can quickly check if your eyes are suitable for hard lenses by filling in a couple questions.
+                <br>
+                This checker will give you a recommendation based on other people their experience with different type of lenses.
+                At the end we will give a percentage on how good the different type off lenses will possibly fit.
+                <br>
+                <br>
+                Before making the recommendation we need you to answer some questions about your eyes.
+                <br>
                 <br>
                 Click on the START button below to start the Lens Check.
             </span>
@@ -55,7 +62,7 @@
                     </h1>
                  </div>
             </a>
-            <a href="{{ url_for('about_page') }}">
+            <a href="{{ url_for('about_get') }}">
           <div class="home-container4">
             <h1 class="home-text05">
               <span>About</span>

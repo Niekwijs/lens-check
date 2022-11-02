@@ -1,6 +1,11 @@
+import base64
+import io
 import random
 import string
 import os
+import IPython
+import matplotlib as plt
+import shap
 
 from flask import Flask, render_template, request
 
@@ -67,36 +72,10 @@ def index():
 
 
 @app.get('/about')
-def about_page():
+def about_get():
     return render_template('about-page.html')
 
 
-def handle_answer(session_id, question_id, answer):
-    if question_id == 1:
-        _q_input[0] = answer
-    elif question_id == 2:
-        _q_input[1] = answer
-    elif question_id == 3:
-        _q_input[2] = answer
-    print(_q_input)
-
-def create_final_input():
-    _final_input = [0, 0, 0, 0, 0, 0, 0]
-    if _q_input[0] == "young":
-        _final_input[0] = 1
-    elif _q_input[0] == "pre-presbyopic":
-        _final_input[1] = 1
-    elif _q_input[0] == "presbyopic":
-        _final_input[2] = 1
-    if _q_input[1] == "myope":
-        _final_input[3] = 1
-    elif _q_input[1] == "hypermetrope":
-        _final_input[4] = 1
-    if _q_input[2] == "reduced":
-        _final_input[5] = 1
-    elif _q_input[2] == "normal":
-        _final_input[6] = 1
-    print(_final_input)
 
 @app.get("/prediction")
 def prediction_get():
@@ -136,7 +115,45 @@ def answer_question():
                            len=len,
                            **{fun. __name__ :fun for fun in [enumerate, str] })
 
+def handle_answer(session_id, question_id, answer):
+    if question_id == 1:
+        _q_input[0] = answer
+    elif question_id == 2:
+        _q_input[1] = answer
+    elif question_id == 3:
+        _q_input[2] = answer
+    print(_q_input)
 
+def create_final_input():
+    _final_input = [0, 0, 0, 0, 0, 0, 0]
+    if _q_input[0] == "young":
+        _final_input[0] = 1
+    elif _q_input[0] == "pre-presbyopic":
+        _final_input[1] = 1
+    elif _q_input[0] == "presbyopic":
+        _final_input[2] = 1
+    if _q_input[1] == "myope":
+        _final_input[3] = 1
+    elif _q_input[1] == "hypermetrope":
+        _final_input[4] = 1
+    if _q_input[2] == "reduced":
+        _final_input[5] = 1
+    elif _q_input[2] == "normal":
+        _final_input[6] = 1
+    print(_final_input)
+
+# def plot_shap(pred):
+#     fig = plt.figure()
+#
+#     summary = shap.kmeans(data.X_test, 50)
+#     e = shap.kernelExplainer(model.predict, summary)
+#     shap_values = e.shap_values(pred)
+#     shap.summary_plot(shap_values, pred, feature_names=pred.columns, show=None, plot_type="bar", max_display=10)
+#
+#     tmpfile = io.BytesIO()
+#     fig.savefig(tmpfile, format='png')
+#     encoded = base64.b64encode(tmpfile.getbuffer()).decode('ascii')
+#     return f"<img src='data:image/png;base64,{encoded}' alt='Plot unable to lo be loaded'/>"
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))

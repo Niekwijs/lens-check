@@ -41,7 +41,7 @@ Text
   .about-container {
     background-size: cover;
     justify-content: flex-start;
-    background-image: url("/playground_assets/group%208-1500w.png");
+    background-image: url("./public/playground_assets/group 8-1500w.png");
   }
   .about-container1 {
     width: 100%;
@@ -51,7 +51,7 @@ Text
     padding-left: 30px;
     padding-right: 30px;
     background-size: cover;
-    background-image: url("/playground_assets/group%208-1500w.png");
+background-image: url("./public/playground_assets/group 8-1500w.png");
   }
   .about-button {
     color: #ffffff;
