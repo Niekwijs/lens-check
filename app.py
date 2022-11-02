@@ -1,5 +1,6 @@
 import random
 import string
+import os
 
 from flask import Flask, render_template, request
 
@@ -133,4 +134,4 @@ def answer_question():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
