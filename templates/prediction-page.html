@@ -5,6 +5,53 @@
     <meta property="og:title" content="prediction-page - lens-pridictor"/>
 
     <style data-tag="reset-style-sheet">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rate {
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+
         html {
             line-height: 1.15;
         }
@@ -122,13 +169,31 @@
           ipsum dolor sit amet, consectetur adipiscing elit.
         </span>
             </div>
+             <div class="prediction-page-container51">
+                 <h1 class="prediction-page-text06">
+                    <span>Rate this prediction</span>
+                    <br/>
+                </h1>
+                 <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5"/>
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4"/>
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3"/>
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2"/>
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1"/>
+                    <label for="star1" title="text">1 star</label>
+                </div>
+             </div>
             <div class="prediction-page-container5">
                 <h1 class="prediction-page-text06">
                     <span>see our collection</span>
                     <br/>
                 </h1>
             </div>
-            <a  class="prediction-page-container6" href="{{ url_for('index') }}">
+            <a class="prediction-page-container6" href="{{ url_for('index') }}">
                 <h1 class="prediction-page-text09">
                     <span>Start over</span>
                     <br/>
