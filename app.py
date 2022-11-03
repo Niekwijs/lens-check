@@ -91,7 +91,7 @@ def prediction_get():
 
 @app.get("/about-prediction")
 def about_prediction_get():
-    return render_template('about-page.html', image=prev_image)
+    return render_template('about-prediction.html', image=prev_image)
 
 
 @app.get('/question')
