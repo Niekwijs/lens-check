@@ -145,36 +145,166 @@
     <link href="../static/prediction-page.css" rel="stylesheet"/>
     <div class="prediction-page-container">
         <div class="prediction-page-container1">
-            <div class="prediction-page-container2">
-                <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
-                <span class="prediction-page-text01">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-            <div class="prediction-page-container3">
-                <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
-                <span class="prediction-page-text03">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-            <div class="prediction-page-container4">
-                <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
-                <span class="prediction-page-text05">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-             <div class="prediction-page-container51">
-                 <h1 class="prediction-page-text06">
+            {% if (prediction_hard >= prediction_soft) and (prediction_hard >= prediction_glasses) and (prediction_soft >= prediction_glasses) %}
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+            {% elif (prediction_hard >= prediction_soft) and (prediction_hard >= prediction_glasses) and (prediction_soft < prediction_glasses) %}
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+            {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft < prediction_hard) %}
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+            {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft > prediction_hard) %}
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+            {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard < prediction_glasses) %}
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard >= prediction_glasses) %}
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                 <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
+                 </span>
+                </div>
+            {% endif %}
+
+            <div class="prediction-page-container51">
+                <h1 class="prediction-page-text06">
                     <span>Rate this prediction</span>
                     <br/>
                 </h1>
-                 <div class="rate">
+                <div class="rate">
                     <input type="radio" id="star5" name="rate" value="5"/>
                     <label for="star5" title="text">5 stars</label>
                     <input type="radio" id="star4" name="rate" value="4"/>
@@ -186,7 +316,7 @@
                     <input type="radio" id="star1" name="rate" value="1"/>
                     <label for="star1" title="text">1 star</label>
                 </div>
-             </div>
+            </div>
             <div class="prediction-page-container5">
                 <h1 class="prediction-page-text06">
                     <span>see our collection</span>
