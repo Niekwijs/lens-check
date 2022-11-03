@@ -6,11 +6,13 @@ import os
 import IPython
 import matplotlib as plt
 import shap
+import pandas as pd
 
 from flask import Flask, render_template, request
 
 import numpy as np
 import tensorflow as tf
+from sklearn.model_selection import train_test_split
 
 app = Flask(__name__)
 model = tf.keras.models.load_model("my_model")
@@ -23,6 +25,8 @@ class model_input:
 
 
 _final_input = [0] * 7
+
+prev_image = None
 
 questions =[
     [
@@ -82,10 +86,15 @@ def prediction_get():
     # ['young', 'pre-presbyopic', 'presbyopic', 'myope', 'hypermetrope', 'tear production rate reduced',
     #  'tear production rate normal']
     create_final_input()
-    pred =(100 * model.predict([_final_input]))
-    pred = pred.round(2)
-    return pred
+    y_prob = model.predict([_final_input])
 
+    b64_img = render_shap_explainer(y_prob, [_final_input])
+
+    pred = y_prob * 100
+    pred = pred.round(2)
+
+    prev_image = b64_img
+    return pred
 
 @app.get('/question')
 def answer_question():
@@ -98,7 +107,7 @@ def answer_question():
     if question_id != 0:
         handle_answer(session_id, question_id, request.args.get("radio_answer", type=str, default=""))
     if question_id >= len(questions):
-        pred = prediction_get()
+        pred, b64_img = prediction_get()
         return render_template("prediction-page.html",
                                prediction_hard= pred[0][0] ,
                                prediction_soft= pred[0][1] ,
@@ -142,18 +151,36 @@ def create_final_input():
         _final_input[6] = 1
     print(_final_input)
 
-# def plot_shap(pred):
-#     fig = plt.figure()
-#
-#     summary = shap.kmeans(data.X_test, 50)
-#     e = shap.kernelExplainer(model.predict, summary)
-#     shap_values = e.shap_values(pred)
-#     shap.summary_plot(shap_values, pred, feature_names=pred.columns, show=None, plot_type="bar", max_display=10)
-#
-#     tmpfile = io.BytesIO()
-#     fig.savefig(tmpfile, format='png')
-#     encoded = base64.b64encode(tmpfile.getbuffer()).decode('ascii')
-#     return f"<img src='data:image/png;base64,{encoded}' alt='Plot unable to lo be loaded'/>"
+
+def render_shap_explainer(y_proba, X_questions):
+	plt.pyplot.ioff()
+	fig = plt.pyplot.figure()
+	fig.legend(["Divorce", "No divorce"])
+
+	df_pred = pd.DataFrame(X_questions)
+	shap_values = explainer.shap_values(df_pred)
+
+	shap.summary_plot(shap_values, df_pred, plot_type="bar", show=None,
+	                  feature_names=[f"Q{index}). {question[:35]}..."
+	                                 for index, question in enumerate(all_questions, start=1)])
+
+	inmem_file = io.BytesIO()
+	fig.savefig(inmem_file, format="png")
+	return base64.b64encode(inmem_file.getbuffer()).decode("ascii")
+
+
+def load_dataset(dataset_path='./dataset/lenses-comp.csv'):
+
+    df = pd.read_csv(dataset_path)
+
+    X, y = df[['young', 'pre-presbyopic', 'presbyopic', 'myope', 'hypermetrope', 'tear production rate reduced', 'tear production rate normal']], df["result"]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+    return df, X_train, X_test, y_train, y_test
 
 if __name__ == '__main__':
+    df, X_train, X_test, y_train, y_test = load_dataset()
+    summary = shap.kmeans(X_test, 20)
+    explainer = shap.KernelExplainer(model.predict, summary)
+
     app.run(debug=True, port=os.getenv("PORT", default=5000))
