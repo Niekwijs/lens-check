@@ -1,0 +1,122 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-container1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-container2 {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.home-container3 {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.home-container4 {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.home-icon {
+  width: 24px;
+  height: 24px;
+}
+@media(max-width: 479px) {
+  .home-container {
+    background-size: cover;
+    justify-content: flex-start;
+    background-image: url("/playground_assets/group%208-1500w.png");
+  }
+  .home-container1 {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-size: cover;
+    background-image: url("/playground_assets/group%208-1500w.png");
+  }
+  .home-container2 {
+    width: 100%;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    margin-top: 150px;
+    padding-left: 30px;
+    border-radius: var(--dl-radius-radius-radius8);
+    padding-right: 30px;
+    padding-bottom: 30px;
+    background-color: #1973b5;
+  }
+  .home-text {
+    color: rgb(255, 255, 255);
+    align-self: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .home-text01 {
+    color: rgb(255, 255, 255);
+    align-self: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .home-container3 {
+    width: 300px;
+    height: 50px;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    margin-top: 350px;
+    align-items: center;
+    border-radius: var(--dl-radius-radius-radius8);
+    margin-bottom: 50px;
+    justify-content: center;
+    background-color: #1973b5;
+  }
+  .home-text02 {
+    color: #ffffff;
+  }
+  .home-container4 {
+    flex: auto;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+    padding-left: 20px;
+    border-radius: var(--dl-radius-radius-radius4);
+    padding-right: 20px;
+  }
+  .home-text05 {
+    align-self: center;
+    margin-top: 5px;
+  }
+  .home-text08 {
+    align-self: center;
+  }
+  .home-button {
+    color: transparent;
+    display: flex;
+    align-self: center;
+    border-width: 0px;
+    border-radius: 0px;
+    flex-direction: row;
+    background-color: transparent;
+  }
+  .home-icon {
+    width: 50%;
+    height: 50px;
+  }
+}

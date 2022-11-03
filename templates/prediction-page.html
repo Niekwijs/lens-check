@@ -149,152 +149,144 @@
                 <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                        BEST MATCH!
+                        <br>
+                        We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                   </span>
                 </div>
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                         We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+                      </span>
                 </div>
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
-                 </span>
+                         We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                  </span>
                 </div>
             {% elif (prediction_hard >= prediction_soft) and (prediction_hard >= prediction_glasses) and (prediction_soft < prediction_glasses) %}
                 <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                           BEST MATCH!
+                        <br>
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                 </span>
                 </div>
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
-                 </span>
+                   We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                </span>
                 </div>
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                          We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+                </span>
                 </div>
             {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft < prediction_hard) %}
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
-                 </span>
+                           BEST MATCH!
+                        <br>
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                        <br>
+                        If you don't want to wear glasses we would recommend the next highest prediction.
+               </span>
                 </div>
                 <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
                     </span>
                 </div>
 
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                        We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+              </span>
                 </div>
             {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft > prediction_hard) %}
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
-                 </span>
+                           BEST MATCH!
+                        <br>
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                        <br>
+                        If you don't want to wear glasses we would recommend the next highest prediction.
+          </span>
                 </div>
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                       We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+              </span>
                 </div>
                 <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+            </span>
                 </div>
             {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard < prediction_glasses) %}
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                           BEST MATCH!
+                        <br>
+                         We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+      </span>
                 </div>
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
-                 </span>
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+            </span>
                 </div>
 
                 <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                      We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+             </span>
                 </div>
-                {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard >= prediction_glasses) %}
+            {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard >= prediction_glasses) %}
                 <div class="prediction-page-container3">
                     <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
                     <span class="prediction-page-text03">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                           BEST MATCH!
+                        <br>
+                      We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+             </span>
                 </div>
-                 <div class="prediction-page-container2">
+                <div class="prediction-page-container2">
                     <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
                     <span class="prediction-page-text01">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                        egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </span>
+                      We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                  </span>
                 </div>
                 <div class="prediction-page-container4">
                     <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
                     <span class="prediction-page-text05">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                    egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
+                We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
                  </span>
                 </div>
             {% endif %}
@@ -318,10 +310,12 @@
                 </div>
             </div>
             <div class="prediction-page-container5">
-                <h1 class="prediction-page-text06">
-                    <span>see our collection</span>
-                    <br/>
-                </h1>
+                <a href="{{ url_for('collection_get') }}">
+                    <h1 class="prediction-page-text06">
+                        <span>our collection</span>
+                        <br/>
+                    </h1>
+                </a>
             </div>
             <a class="prediction-page-container5" href="{{ url_for('index') }}">
                 <h1 class="prediction-page-text09">

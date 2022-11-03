@@ -75,6 +75,11 @@ def about_get():
     return render_template('about-page.html')
 
 
+@app.get('/collection')
+def collection_get():
+    return render_template('collection-page.html')
+
+
 def prediction_get():
     # ['young', 'pre-presbyopic', 'presbyopic', 'myope', 'hypermetrope', 'tear production rate reduced',
     #  'tear production rate normal']
