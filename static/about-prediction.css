@@ -36,7 +36,7 @@
   .about-prediction-container {
     background-size: cover;
     justify-content: flex-start;
-    background-image: url("/playground_assets/group%208-1500w.png");
+    background-image: url("./public/playground_assets/group 8-1500w.png");
   }
   .about-prediction-container1 {
     width: 100%;
@@ -45,7 +45,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background-size: cover;
-    background-image: url("/playground_assets/group%208-1500w.png");
+    background-image: url("./public/playground_assets/group 8-1500w.png");
   }
   .about-prediction-container2 {
     align-self: center;
