@@ -5,6 +5,53 @@
     <meta property="og:title" content="prediction-page - lens-pridictor"/>
 
     <style data-tag="reset-style-sheet">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rate {
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+
         html {
             line-height: 1.15;
         }
@@ -98,69 +145,190 @@
     <link href="../static/prediction-page.css" rel="stylesheet"/>
     <div class="prediction-page-container">
         <div class="prediction-page-container1">
-            <div class="prediction-page-container2">
-                <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
-                <span class="prediction-page-text01">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-            <div class="prediction-page-container3">
-                <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
-                <span class="prediction-page-text03">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-            <div class="prediction-page-container4">
-                <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
-                <span class="prediction-page-text05">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.
-        </span>
-            </div>
-            <div class="prediction-page-container5">
+            {% if (prediction_hard >= prediction_soft) and (prediction_hard >= prediction_glasses) and (prediction_soft >= prediction_glasses) %}
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                        BEST MATCH!
+                        <br>
+                        We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                   </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                         We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+                      </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                         We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                  </span>
+                </div>
+            {% elif (prediction_hard >= prediction_soft) and (prediction_hard >= prediction_glasses) and (prediction_soft < prediction_glasses) %}
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                           BEST MATCH!
+                        <br>
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                 </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                   We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                          We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+                </span>
+                </div>
+            {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft < prediction_hard) %}
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                           BEST MATCH!
+                        <br>
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                        <br>
+                        If you don't want to wear glasses we would recommend the next highest prediction.
+               </span>
+                </div>
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                    </span>
+                </div>
+
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                        We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+              </span>
+                </div>
+            {% elif (prediction_glasses >= prediction_soft) and (prediction_glasses >= prediction_hard) and (prediction_soft > prediction_hard) %}
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                           BEST MATCH!
+                        <br>
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                        <br>
+                        If you don't want to wear glasses we would recommend the next highest prediction.
+          </span>
+                </div>
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                       We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+              </span>
+                </div>
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                    We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+            </span>
+                </div>
+            {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard < prediction_glasses) %}
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                           BEST MATCH!
+                        <br>
+                         We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+      </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                 We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+            </span>
+                </div>
+
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                      We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+             </span>
+                </div>
+            {% elif (prediction_soft >= prediction_hard) and (prediction_soft >= prediction_glasses) and (prediction_hard >= prediction_glasses) %}
+                <div class="prediction-page-container3">
+                    <h1 class="prediction-page-text02">Soft lenses: {{ prediction_soft }}% </h1>
+                    <span class="prediction-page-text03">
+                           BEST MATCH!
+                        <br>
+                      We recommend soft lenses could be a {{ prediction_soft }} % fit based on the answers you have given.
+                        Soft lenses are cheaper per set but will be expensive compared to hard lenses in the long run.
+             </span>
+                </div>
+                <div class="prediction-page-container2">
+                    <h1 class="prediction-page-text">Hard lenses: {{ prediction_hard }}%</h1>
+                    <span class="prediction-page-text01">
+                      We recommend hard lenses should be a {{ prediction_hard }} % fit based on the answers you have given.
+                        Hard lenses cost more per set but will be cheaper compared to soft lenses in the long run.
+                  </span>
+                </div>
+                <div class="prediction-page-container4">
+                    <h1 class="prediction-page-text04">Glasses: {{ prediction_glasses }}%</h1>
+                    <span class="prediction-page-text05">
+                We recommend glasses could be a {{ prediction_glasses }} % fit based on the answers you have given.
+                 </span>
+                </div>
+            {% endif %}
+
+            <div class="prediction-page-container51">
                 <h1 class="prediction-page-text06">
-                    <span>our collection</span>
+                    <span>Rate this prediction</span>
                     <br/>
                 </h1>
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5"/>
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4"/>
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3"/>
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2"/>
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1"/>
+                    <label for="star1" title="text">1 star</label>
+                </div>
             </div>
-            <a  class="prediction-page-container6" href="{{ url_for('index') }}">
+            <div class="prediction-page-container5">
+                <a href="{{ url_for('collection_get') }}">
+                    <h1 class="prediction-page-text06">
+                        <span>our collection</span>
+                        <br/>
+                    </h1>
+                </a>
+            </div>
+            <a class="prediction-page-container5" href="{{ url_for('index') }}">
                 <h1 class="prediction-page-text09">
                     <span>Start over</span>
                     <br/>
                 </h1>
             </a>
-            <div class="prediction-page-container7">
-                <h1 class="prediction-page-text12">
-                    <span>About</span>
+            <a class="prediction-page-container6" href="{{ url_for('about_get') }}">
+                <h1 class="prediction-page-text09">
+                    <span>About prediction</span>
                     <br/>
                 </h1>
-                <span class="prediction-page-text15">
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            egestas et magna vitae pharetra. Vivamus in hendrerit lorem. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Maecenas egestas et magna
-            vitae pharetra. Vivamus in hendrerit lorem. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit.
-          </span>
-          <br/>
-        </span>
-                <button class="button prediction-page-button">
-                    <svg
-                            viewBox="0 0 950.8571428571428 1024"
-                            class="prediction-page-icon"
-                    >
-                        <path
-                                d="M920.571 475.429c0 19.429-8 38.286-21.143 51.429l-372 372.571c-13.714 13.143-32.571 21.143-52 21.143s-38.286-8-51.429-21.143l-372-372.571c-13.714-13.143-21.714-32-21.714-51.429s8-38.286 21.714-52l42.286-42.857c13.714-13.143 32.571-21.143 52-21.143s38.286 8 51.429 21.143l168 168v-402.286c0-40 33.143-73.143 73.143-73.143h73.143c40 0 73.143 33.143 73.143 73.143v402.286l168-168c13.143-13.143 32-21.143 51.429-21.143s38.286 8 52 21.143l42.857 42.857c13.143 13.714 21.143 32.571 21.143 52z"
-                        ></path>
-                    </svg>
-                </button>
-            </div>
+            </a>
         </div>
     </div>
 </div>
